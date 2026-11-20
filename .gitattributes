@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.obj -text
+*.stl -text
+*.png -text
+*.jpg -text

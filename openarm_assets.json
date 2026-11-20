@@ -1,0 +1,1714 @@
+{
+  "source_model": "upstream/openarm_mujoco/v1/openarm_bimanual.xml",
+  "arm": "complete OpenArm v1 torso and two arms; right arm active, left lowered at side",
+  "left_pose_degrees": {
+    "joint2": -8,
+    "joint4": 0
+  },
+  "startup": "home keyframe settled under gravity for 4 simulation seconds",
+  "imu": "one IMU on openarm_right_link7 only",
+  "band": "four rigid Part_28 CAD geometries fixed to finger links; no band joints",
+  "camera_geometry_removed": [
+    "left_bb_allen_key_bolt_m3__1___v0",
+    "left_bb_allen_key_bolt_m3__2___v0",
+    "left_bb_part_18__v0",
+    "left_bb_part_1_1__v0",
+    "left_bb_part_2__v0",
+    "left_bb_part_3__v0",
+    "left_bb_part_4__v0",
+    "left_bb_part_5__v0",
+    "left_bb_part_6__v0",
+    "left_bb_part_7__v0",
+    "left_bb_part_8_1__v0",
+    "right_bb_allen_key_bolt_m3__1___v0",
+    "right_bb_allen_key_bolt_m3__2___v0",
+    "right_bb_part_18__v0",
+    "right_bb_part_1_1__v0",
+    "right_bb_part_2__v0",
+    "right_bb_part_3__v0",
+    "right_bb_part_4__v0",
+    "right_bb_part_5__v0",
+    "right_bb_part_6__v0",
+    "right_bb_part_7__v0",
+    "right_bb_part_8_1__v0"
+  ],
+  "dofs": 13,
+  "actuators": 8,
+  "cameras": 0,
+  "physics_timestep_s": 0.002,
+  "gripper_inertia_note": "Inherited nominal link masses and inertias, not measured CAD mass properties.",
+  "mount_note": "The host supplies the flange transform. The connection region has no adapter CAD, collision geometry or fabricated adapter mass. No physical flange adapter has been designed or certified.",
+  "meshes": [
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/collision/arm/link0.stl",
+      "sha256": "baf52578e1d9e6225f3818cae82b6074a0b948d3cef8e9a3e6dfafca78507590"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/collision/arm/link0_left.stl",
+      "sha256": "d46bbffd498752f960c7c3c54ebc6ff91fe229ee45a99725894e5b689969a3a2"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/collision/arm/link1.stl",
+      "sha256": "066113d13d5cc85098609003bc7ebb73c570015350877f5ed7162ef1b6601852"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/collision/arm/link1_left.stl",
+      "sha256": "77fc53bda3ed554ec61a697d2855668e3f23b1e87433e7436cc3e89a5fe4a8b7"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/collision/arm/link2.stl",
+      "sha256": "382ab32e4ae0880e8a1512e7a6ca6ce1f478a6c125db4efa977429ffb1d6b02a"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/collision/arm/link2_left.stl",
+      "sha256": "20649ef8b77c024e6e27678880db4c3ec901fdfe523797a561f68a9fd564dfd4"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/collision/arm/link3.stl",
+      "sha256": "00c908cefab152c00416a570a48bf9aafed1549085f19ff2d882dc3f355d9f59"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/collision/arm/link4.stl",
+      "sha256": "b54883b8c7c96268a68a5879f95998a53ad0b0c4fe74325fad63a6caef669c73"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/collision/arm/link5.stl",
+      "sha256": "678a2802906eff7b45a836d2f34a2d8e51def50b6599376968f888e05c72739e"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/collision/arm/link5_left.stl",
+      "sha256": "48216f1f626e55b8c14ce2740eda785cca780e55df660485f106457cc9062d29"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/collision/arm/link6.stl",
+      "sha256": "95529bec23733476dfdbbb266c7db0d25a473a568de73c8337a82440fe4a9ac3"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/collision/arm/link6_left.stl",
+      "sha256": "e772a07f3687d435efed2bfae564df0548d9c6072311a4c1460b722a47c1c9d5"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/collision/arm/link7.stl",
+      "sha256": "434f207f21f75f5f0bd604e390b8e5bc7b62b619265222846770e06b3f9b5cfb"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/collision/arm/link7_left.stl",
+      "sha256": "734a122a31db71993f75c84d681625460d24e77b3805a55de42fbfa28687d1c8"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/body/body_link0_0.obj",
+      "sha256": "e602289d3fa4002bea0b40241ac06bf867b290975b292ca2b21e1273cd1f5bb4"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/body/body_link0_1.obj",
+      "sha256": "6feb19b84f5d58f64521d22529b9987384f931df4fd3dc52c5120b785daf67ef"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/body/body_link0_2.obj",
+      "sha256": "a781f72d229ec9015178503669ed34e33a0ec3dd04f429abef1e304ffc2fb372"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/body/body_link0_3.obj",
+      "sha256": "66b509bcd3ed99c25e369dba8d5892c508ec2bb9bbaa12bd1910bb3b47710737"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/body/body_link0_4.obj",
+      "sha256": "c70bc6e00abaf91b52ed876a1517e5a95055d5659e12f02df0ac2907c6ca03cf"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/body/body_link0_5.obj",
+      "sha256": "db6635bcfb980978e6c93b5009b745047580ff129a78645123b3696ffab8bf8e"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link0_0.obj",
+      "sha256": "7f03f53c6b9a623bd5084c453ffd567eee749feb4c4198e26dc1a50b5dd0d44f"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link0_1.obj",
+      "sha256": "b650ac28fb336bbcbd839b6a13455d15daf2981ee0106c59c13216c82ae1f966"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link1_0.obj",
+      "sha256": "cf6488cbaabd7cb25ce19079c7594100ad1014b6e1a1f785f484322c6a2f1d90"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link1_2.obj",
+      "sha256": "71a62d309f692747a330032d66666f28348e755562a3df1121567e7209501b8a"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link1_3.obj",
+      "sha256": "f393b39068913a3ba01a546d1b5c8fa85770ae6a38e56c6edf72741545a992ee"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link2_0.obj",
+      "sha256": "37ffd233a269a3da8e43cece9baf5a1aac3fe2ec311f55d512c9b8b5eddb49e2"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link2_1.obj",
+      "sha256": "92a5ccae28fa82ff0e4256aeb9ed511db94648550f15bad1e64ea0315a076396"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link2_2.obj",
+      "sha256": "37faf3fc75596c1f7977beb11e5e383138259c411d721d67efb87a326293f834"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link3_0.obj",
+      "sha256": "21efe7a1bfe9e7b5ce937b4f4de18f513b3bf15be0c22cdd06f1837eb26faf02"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link3_1.obj",
+      "sha256": "7d9e5a057baa8155f8d44852861d5801699ca00e9edbb789deb23b932bf378c5"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link3_2.obj",
+      "sha256": "1d874579ebdb34187773bd3addfe17d854f8a56ef5b40eff078793447579c8fc"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link4_0.obj",
+      "sha256": "d52721ef2490f8f9065351a8f44993e0377448c0bcd3f082e1940c3fb53489ce"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link4_1.obj",
+      "sha256": "548430495869ea649be7036171d1dd535f8eab10f618459c4054bb8e00ba04a2"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link4_2.obj",
+      "sha256": "8baedfd63a99d1e31d3e0078e341779672da0c6b3cbe2abde756c8c4fc72be43"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link5_0.obj",
+      "sha256": "f63f62fb9558a2a33c0b4f754e98c7f6114116651b938503eeac0f7d181240a5"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link5_1.obj",
+      "sha256": "79480de4fa5054fd145fdc2e7d6681ddacc78502811c6e47d58ca60f742a2c5c"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link5_2.obj",
+      "sha256": "9f2933b06dd97a6093e37b6556e8be5d0dc78161d71db70d615b12a22d3069fc"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link6_0.obj",
+      "sha256": "d40552f8c5f70fa79e21141a40c832e714f3093b2c548a004d4cc072d2db1a43"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link6_1.obj",
+      "sha256": "5df4f13db13c43525296f016bbb5705f1f7197352be6452a6fd9093d8b484836"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link7_0.obj",
+      "sha256": "6d39c1705d4fb6df3e0caa594f2a6a3c2dbf3df988ad4c2be5d041732fce092e"
+    },
+    {
+      "file": "assets/upstream/openarm_mujoco/v1/meshes/visual/arm/link7_1.obj",
+      "sha256": "0e1313ce45cfe06911d2a2551889639d1939a287e1b527514ede2b934ddf5d5c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/B3B_EH.stl",
+      "sha256": "1daaecd40d12487aa9f121a82ee4fcdd5eb62dfe20e0a1a8bb39e330fb284f2a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/B3B_EH_1.stl",
+      "sha256": "9d3d39ece1b53397ae468ec8be0c55443e7e717f2c6d4d14abbb01d2628bd6b2"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/BTS2_M2_6X8.stl",
+      "sha256": "91df463b1f32f818f75305daced900f828cb6ad55161e93cf67bf2c21822d296"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/BTS2_M2_6X8_1.stl",
+      "sha256": "de52f6156909cfd02e74d83bb1bea4b0a0afff61d8f0f384407c0b91d30f3826"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/DC15_A01_CASE_B_DUMMY.stl",
+      "sha256": "df677cc1dd48c888329cc60d7190dae5fb32723cbb61b7451dbe94c409e26d07"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/DC15_A01_CASE_F_DUMMY.stl",
+      "sha256": "711afd08ade770df9683803bb67c3069d22d8c17c58da56ea0444acf138c71c3"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/DC15_A01_CASE_M_DUMMY.stl",
+      "sha256": "2dae9d8e9ec4ab7a94b614ad4f64f7fec452090ffc389c0f21c470b68d0cd55b"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/DC15_A01_HORN_DUMMY.stl",
+      "sha256": "d6a70a5fe1eeda63b12c5003279f56097837969b65326bc63eead9de21553807"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/DC15_A01_HORN_IDLE2_DUMMY.stl",
+      "sha256": "12f764a263dd21ab7ed617a5d384ef858bad921829f9a27f2406eb73d5207532"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/DC15_A01_IDLE_CAP_DUMMY.stl",
+      "sha256": "9d05723859105a3a7244d7d614ce4b746c51cccea09e5c5ed27e6ca546f12677"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/DC15_A01_LED_CAP2_DUMMY.stl",
+      "sha256": "3e6e797a4874d145769d1b0e34dcab5929b9123085f0c3bb0509d54a2e045ff0"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/NONE.stl",
+      "sha256": "0163334123345221061c847781125f48f1a4927bdd052171c21a4a0083721907"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/PHS_1_7X20_5_DC10.stl",
+      "sha256": "7a0d1159eac2cf8e2072c913358dd653314c611c1fbee48d3b91063f53f4bd80"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/PHS_1_7X20_5_DC10_3.stl",
+      "sha256": "8e003aaa7bd995c9300c5067762b7e0d7cd905d356ba8216a3f4daf03f911326"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/Part_1.stl",
+      "sha256": "81afec2f2055783dbd1bb29f6b12bfea20bef98219d62bb7f58363c319d46bc9"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/Part_10.stl",
+      "sha256": "0a6701608e7c1be3692f7781599f581dd973e42fca48dc8c19dce9b167998744"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/Part_13.stl",
+      "sha256": "6d705e194f36660e7257b253fc42c321b839c962ab4408bb22b2d50bb00845e1"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/Part_14.stl",
+      "sha256": "c57102fcbfe1734c430b93087223155ce5cc8c315255ebeb77eb6952602ac0ce"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/Part_15.stl",
+      "sha256": "6c433777518b8e59c3e2ab433874da570c7c14efbbc5004e5a148644b4a09169"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/Part_16.stl",
+      "sha256": "f9a95009a4c70ea6c58ec5accd5906801809fda8b0cad872a208dbf9eb4bdf16"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/Part_17.stl",
+      "sha256": "79b5575af776c6fd943a34db35bc5cbefa8418fccea8f5a876c0e85fd794a261"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/Part_28.stl",
+      "sha256": "eb30b8ce418bf5e97464cb89f24b7e577c30b1988417cd7c06ab91a33f61aaca"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/Part_3_1.stl",
+      "sha256": "20b9b1d8e9f3024fca7765ed450ed81ed56afa9c8323506c506a5ffe76d2f4ef"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/Part_6_1.stl",
+      "sha256": "7b827baa0a0b10bfd0a510e9fcead49a8d40831c9dd39876701022715f0d60dc"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/Part_7_1.stl",
+      "sha256": "54ebb38fb874bdd3191748a4feb261787967a0666839142613d4d20948cf4378"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/Part_8.stl",
+      "sha256": "f8addb94e7cbb0088e6ba668e8859c8c850b9d7b19835e0b1ed05a49936b2732"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/Spur_1M_18T.stl",
+      "sha256": "3d99326f19a2210cc1de5ab52f006bff6bd60e586ea299571078bd9881876ae3"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/Spur_1M_30T.stl",
+      "sha256": "8eb539d22fd4ee7f884f7fee19e5146a38103050e90d07eb4f4e14078c745f6e"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/ThdSchPat.stl",
+      "sha256": "160b47c38cc6d26387c39a2f9e66ea2437fd86280a18270fbb2b2d99fc583842"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/_.stl",
+      "sha256": "1664eba7fa73e7ad0fd3ae5218cead3dd19ebf47b3a5228699cc65a801e92dd5"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/__1.stl",
+      "sha256": "7ee1dd2e1ced444ac7b0ac7a65d106d9cf20113305c26ee927accf097bb6813d"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/bearing_flanged.stl",
+      "sha256": "b0d3c131cae24436005e2e5e61d291613c73d834f7270e2f89baa1bea355021e"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/bearing_flanged_1.stl",
+      "sha256": "59acf91b9a0fc7bf7e0db2f831f611a3355373448c54de5cbd2d0b18777201b4"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/bearing_flanged_2.stl",
+      "sha256": "3c848943b4f103a2455f985077c1f9f95cacbe814c1091bd5d91e60875c58302"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/B3B_EH_28f3a46d_h00.stl",
+      "sha256": "5d96fff75c561a9e701f28d63ed981d24fff83a84554eb13634c28a8023df941"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/B3B_EH_1_9a54b2fd_h00.stl",
+      "sha256": "030891cfdc73e20a6760099e913ba1cddecb40aec91629c8e3586cf9035807c5"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/BTS2_M2_6X8_598ef6a8_h00.stl",
+      "sha256": "8390997ba1d742e5a90cb11719d6fc40b363703652f840ab8ff7bd4c30d1e507"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/BTS2_M2_6X8_1_df4bf368_h00.stl",
+      "sha256": "aee73a2546d35cca2729bbf754ec4ab3f66e2e2fa8ef5e0d5b1445eb99488009"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/DC15_A01_CASE_B_DUMMY_65f4692a_h00.stl",
+      "sha256": "e998b722764d2fd7f0042950ca17491f515bccc691fb7c44b6bf88146fa9aee6"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/DC15_A01_CASE_F_DUMMY_31cfbcad_h00.stl",
+      "sha256": "8c0b218332662ff7281de88f12a9a2f3741603a1a9417c35d35bb86f3e84a569"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/DC15_A01_CASE_M_DUMMY_a1ce77a9_h00.stl",
+      "sha256": "334bdadd98e12fe5dc9a81352703ffb6c0a514c4c57ae5b0f1d8c5beccedf50f"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/DC15_A01_HORN_DUMMY_80dd177d_h00.stl",
+      "sha256": "87976d7c0de6106dfc02b2cdb7dcdeb0a13b161e21d68d18e5fd7051e596c444"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/DC15_A01_HORN_IDLE2_DUMMY_62581f6e_h00.stl",
+      "sha256": "7c154eba7fceadb6644e75d00b5b838ab9435bdcff598606bf52f7285da28fe6"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/DC15_A01_IDLE_CAP_DUMMY_370f5e44_h00.stl",
+      "sha256": "8bce9d61fe307515dda7bd8ac8b3c55339eaf5d1591751b3b7b8c5b221d79a1a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/DC15_A01_LED_CAP2_DUMMY_de69b589_h00.stl",
+      "sha256": "5480c0ac31a9abf9e08e479780226c9911435ef16592fa5067e996f0bf049062"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/NONE_c3200e86_h00.stl",
+      "sha256": "f639fce30e97c1a01a58a720a5f298106394e63c3360ea1740fd7ffff71b7f7b"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/PHS_1_7X20_5_DC10_a0544a97_h00.stl",
+      "sha256": "a703bf4f7f7db0ebda2d05720b205cac9c3f4d3abde5f95dd1d5118a565e1c6a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/PHS_1_7X20_5_DC10_3_778faccd_h00.stl",
+      "sha256": "f83d2029f2c3fd7272efcf3939edecc94b7342e83e4212afbaf2da06837dbf8e"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h00.stl",
+      "sha256": "b339845a4be734739aeaf1a7c88e0a92801bcf698b5823fa566e6ba4195be325"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h01.stl",
+      "sha256": "aa693269fa63eae9e593601065ff3b3802e1a42b3e0bfe24e3304b578a87fca4"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h02.stl",
+      "sha256": "2c7b9fef5650884525fd7ee7b231c14fb4bb7c7b792800afbfd6d7ad5f476f2d"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h03.stl",
+      "sha256": "10ffae7db97e86060e2bef2128c2536f83004c08a61c449663608cbaf25a6881"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h04.stl",
+      "sha256": "807124c373977b8c252b96fc6b7882b3e9a96355cb9655dd59208eafd3af3c7f"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h05.stl",
+      "sha256": "9ad66062b09d6acef4151461d52053ff108c023a1ceb419ac7d2b325a5929f4c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h06.stl",
+      "sha256": "c58776a6170f3f1654d3126e5eb2d33c09c8b157778be80271e421936dee1c9f"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h07.stl",
+      "sha256": "d21f69d8e3d3433bf215d9e85d19f65a5283a6bd983ad61096bbe67b43141f46"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h08.stl",
+      "sha256": "fb4de218c27fb38c584cbd104f098d1e1f410d80551617821df751cfe1191ac2"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h09.stl",
+      "sha256": "2ff5c7bdfd35ea9ea206a2ffe188824b130cf1010520be86ede901eb1d0d8aaa"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h10.stl",
+      "sha256": "db2823adc5824550a216606a30b05d9bdd7af8fac3878e77ca29300795055d80"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h11.stl",
+      "sha256": "863ee5c02564c79b9edaba7a1bb51d1b9f0487cfbffecb03a7c9cfc686c7c70d"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h12.stl",
+      "sha256": "6e905daced610f08e461be64de5138ba0d0b0c43c2141f515a82b9398d27f804"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h13.stl",
+      "sha256": "2a88e95eb4813b1f0af039cc18108b1c59f6eed71baed6983a711ea9a5f09ce3"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h14.stl",
+      "sha256": "be2a96cb2ddf9679a01d6f7f0034026cfe58bf4e9d6b8501dc4691bb2633d5c2"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h15.stl",
+      "sha256": "392286dfe9581b84e4c5c4a4d69de02efd209596ed98c3103a342405bf5762f7"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h16.stl",
+      "sha256": "cb6069955b425270ca2770694a44409442d682ea35a0f728e225393a3bd6c95a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h17.stl",
+      "sha256": "f5bbf611847a6d8565ab7c9a1abde6156978be2df4af3a5aebba733b4decbdc0"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h18.stl",
+      "sha256": "77f3127cc1c6c8df778ff307ee5bf75905e07d8a970f5730166969936d528140"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h19.stl",
+      "sha256": "cb8ba89971947bd02bcbf6ac030e397a23852fea572d9f74f1a8145eb9fb99ce"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h20.stl",
+      "sha256": "f8eb16388e0d23edf8f7824331de7ed82a9e2444cb9876e49c8890cd4565ad26"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h21.stl",
+      "sha256": "12a01043569a8d1ef993660ae5652d74c01c9c9c2ea35087797864c987be8cb5"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h22.stl",
+      "sha256": "1d5fbd806c844fab17b5d40e7a0a53cc20acefb72f385089117bc905fc7518c4"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h23.stl",
+      "sha256": "ed33aba894a566574ebced00258613198f7a5083708d919418c5cdb344c1d4e7"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h24.stl",
+      "sha256": "b33f53debdd6dc182c9fe83c6adc5fb713469690fa8cbab074f0c9f707890d8e"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h25.stl",
+      "sha256": "52d07fc1a2ed937b44912c6aebf83bca71a0c7d127c8b2672811e68cd6dad335"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h26.stl",
+      "sha256": "46f651d3945761b1612a7a66fd9307a014d3f6120c7c49adf579a06a0666d9ce"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h27.stl",
+      "sha256": "090ec20e93458301a185b784d53ad9ecebb20002e39a8a90298c84aff2639375"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h28.stl",
+      "sha256": "d7e821008da0369cf828f9f17f1afcfd006dcc27e1d3dc05a60e3af53f1f9b21"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h29.stl",
+      "sha256": "84d388d12cb874b6a6e9b973c97eb7a1c9f86b35aa95317238ba72589ee325a0"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h30.stl",
+      "sha256": "4432a137492151764a85607b440e6a66d5a3b3899a47b0c49718ce7e75ce60b0"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_1_9b7e1951_h31.stl",
+      "sha256": "345864a0ae3bfa6cb6462b3aa92cdc9e35e4d284548413c8be204935fc3f35c3"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_10_ab226916_h00.stl",
+      "sha256": "bc468ae0ec8f8ff5fffbc6335e144a78257f8c53d862c5bd4cddd58d3a8a797a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_13_7e4ef0b6_h00.stl",
+      "sha256": "f78bd69f83e1c23bb1106cd532d937f0ec00a78d05a51c62c160145ea19e15b1"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h00.stl",
+      "sha256": "24f17a14a3b70325f7a9dfb7bf7f17bbbabd4d6ccf749c8213593ab48220a3b0"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h01.stl",
+      "sha256": "437216960fe71f481037eda2d9199b7d4a6e689e303a418e9b7008bb5724bcd8"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h02.stl",
+      "sha256": "8b6fa47358f8e4940dbde6072f619ae8ba6d0ec8ac75ffb06ecfea4dbba9b447"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h03.stl",
+      "sha256": "17aeb0d30fb3d508dab178d5b0317785e5127313c3cf0784d3333c4ed27a048f"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h04.stl",
+      "sha256": "b716d3f4f973ffe56ed52ac56c3bc827431172882dadf4cd878fed59e6769e2d"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h05.stl",
+      "sha256": "8126930289f8ed931a2f4580c781acc1375f41a8c146fbefea82c39ba5c248f1"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h06.stl",
+      "sha256": "95c1aba460d92e93cb4a5291fa7eda11abc264db3fb176d7092aad06fa7a0da7"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h07.stl",
+      "sha256": "eb7f8e7801469c6272acf471f84f021b080546907347de1317a29aebed81dc1f"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h08.stl",
+      "sha256": "489e2ea05551ae8fa9aee39c61b5005e182bed8ee406e8dc37e16ce9bf516f21"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h09.stl",
+      "sha256": "813f3a8f6a116296c120d372831bc1c2f5593c099692459927be783a91e26c05"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h10.stl",
+      "sha256": "a89f698a25fc6441683014646b394010381a3889265b40874f2995e9c8d5fd8a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h11.stl",
+      "sha256": "08e196fbefdb1eff546fc92f96b7a889811d839b4e4f699f2f08e57415468199"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h12.stl",
+      "sha256": "9968148ca3062332e74e8824b66a9ae82da39ad866601e307a6091847f7fe291"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h13.stl",
+      "sha256": "c8936087ea4278d62301769061037c9306a6a37637090071d7c7100c4a711db4"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h14.stl",
+      "sha256": "b878ce7d33002f7cc9d7548fd5235ea865102fb81d219faeff5d332a52f0fe6e"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h15.stl",
+      "sha256": "4fc4f2b5648ad848e75860e81b92987ed7110d31ae332f87afa34f942dd486e6"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h16.stl",
+      "sha256": "a553615c73d6af97cd63caa99a9e787adb521c30c7ead804a2c18a8ba8fb9d76"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h17.stl",
+      "sha256": "1038d348c74e1d7d8513bc1e92b638831c516a8524be8184c2946b374af60670"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h18.stl",
+      "sha256": "02d6876e9161f257fc51dd094d5e5cbdd7022e16d4682ae989f284469861262e"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h19.stl",
+      "sha256": "0ca7fac00a8dd2a42224914c96340be27a45ff7672d11fea71ea00ebf2cd98ba"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h20.stl",
+      "sha256": "f3cf00d3f4cc7b0374acdd963bd98cd25ff158826145f80ba14d6a2cf6160cbc"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h21.stl",
+      "sha256": "ac0dcbb94fa140faba8e07c7ebefb4308d5757da8273c8f27c90b460bc9baee0"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h22.stl",
+      "sha256": "e98315eed8ee758b030cc797c0f0ea63804a376fc31bd45559fff3247c913d8b"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h23.stl",
+      "sha256": "83c132bef69f697990151ca1bd9244514651456ec304f5b328da09098245a53c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h24.stl",
+      "sha256": "02610b930b6b8ce83cf9f38e3b94046ba796d4a0fcd6df7858ef4a50e32c8007"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h25.stl",
+      "sha256": "d5bbe215826a111e135ad236a8b2cc3dbdb25ac9e91f06a380ec1ff87f33bbd5"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h26.stl",
+      "sha256": "93186227bfa25d7efdd29b4d168bdfcf6d447f483e3d82a6da7a1d4ba1fce5cc"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h27.stl",
+      "sha256": "e4ecc7cbd8cd99879c5ce42386282134c4a508980ba0fdb4b1efdef6b5c98645"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h28.stl",
+      "sha256": "4db54498bd41b275cbfbcd241285a08f2e187babde9774ea487024890093db4e"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h29.stl",
+      "sha256": "4a67006983777192f45d361632d61981336f73118c296de14f5bf8389371d9aa"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h30.stl",
+      "sha256": "8b00680d96db2da4bc17652b392ee731cfcc80bfffad70369d51d1947d4f3a0a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_14_b1f58612_h31.stl",
+      "sha256": "49af5cfbecae663c38926a88444607e187a348d01ba24386c4c67bea23335c4d"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h00.stl",
+      "sha256": "33074ce1e98601c8d17f5cbda9228d567758dc08894a9ebcb453a327a227abde"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h01.stl",
+      "sha256": "5ac0d146d3bde4e224c4bad1fdfb451100086194cf5fba2d375fc6453b8ab144"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h02.stl",
+      "sha256": "2f6d78ddd5f79edf7a33d6270c7af6906e8d1da0d779c08d1b8aed22cbee5e83"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h03.stl",
+      "sha256": "d9ffaddeac4e246312cbb96c265380a315ac52de6912ece43b171b539d882ffe"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h04.stl",
+      "sha256": "4e89c935da2e3907907256498a5b9bf398b9746ec98c1542d27671741fef2d45"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h05.stl",
+      "sha256": "e5607a25b412182df23f2b81b9fa2a064e2346b41c53268fa3bf85a5e86d85ee"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h06.stl",
+      "sha256": "c7df0d719dd202193236b7115e22766025e7b163878130c9e2c8218181bba065"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h07.stl",
+      "sha256": "e2af05fcffc9ec05cbaddbb92b44a2e14c921b83eb7eadac49654b168a3a6853"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h08.stl",
+      "sha256": "6e2387c41f726752d598e2c77a79759d4f195ac729b737d2a71b614439bdfd98"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h09.stl",
+      "sha256": "c4c76b38e23fb11bb2e4142355c71028249ded621f6aca2fd21319fdb00ebf1b"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h10.stl",
+      "sha256": "6d7042e63a46c2988eec3cef440292d3f6236471cf91521318b1b513f27168d4"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h11.stl",
+      "sha256": "faf55a0ed02ab23963960f829e8c3a571344f1706d458b4065d496759a4632ea"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h12.stl",
+      "sha256": "9c780b4708bf458c2065c61d852f82410ddb91aa761fa9a63c4905073ad03846"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h13.stl",
+      "sha256": "e5b4093b0e3a4a1b47604123c16eb1286420828afe8820b948868677aab55931"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h14.stl",
+      "sha256": "58ccb7f32ea30be7750509b5334742467ac0a4395497f65ff63d31069204989d"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h15.stl",
+      "sha256": "ee21b26fb08a38b35574533b9fff0cd082f68753a775ccb1009a39db3258087a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h16.stl",
+      "sha256": "cd73b3eab33d131f5a53f673b3a908a76b1e246df646c4dd86b935f3fdf5e412"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h17.stl",
+      "sha256": "dbad4cf5b7039c06cb919cc7838ffb18d827de1a8f0c94282ada06cb25e660f4"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h18.stl",
+      "sha256": "a7f30552063649def54712a0c4c25390842b757071697fea9eda3bf855d8b43a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h19.stl",
+      "sha256": "a2efeac387cb9f2a232aad961959ccf5a295bf7a74f61b7d034400d794595381"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h20.stl",
+      "sha256": "ef60c18fe8a344f748ca71e32eefcbbc5ccbe5231b0ac8cd3589814d33840bd7"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h21.stl",
+      "sha256": "2a2e9d024cea16b0a6cf58f16f803d7ff7c1a06358efb05442b7908f459d2ee6"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h22.stl",
+      "sha256": "d80b4b8346d6564bfa43554a4680ca996594fbb59b8ab331f7f270cfbff5fff0"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h23.stl",
+      "sha256": "3c98b6c72f1c057176ac2094a2dc1da85e995a4ddf20f4f14ed6aa583f487bd9"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h24.stl",
+      "sha256": "438df7ddf99a2a99436a0b56390048a663b70a586f0143a2ac5933e5711b0997"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h25.stl",
+      "sha256": "e002eebf76a5483fba17d4a6ef310a8ea4d47cccba607aaebfb700295715b9fe"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h26.stl",
+      "sha256": "0f2aed16541453d9d717d341da209a85ee3423f75510bb33719c78f281e9a67d"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h27.stl",
+      "sha256": "518a18309c3a21770aa43dfccd94381272e88bc0a0570f3459c2392e19f2bc84"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h28.stl",
+      "sha256": "2cda705a70b32c64e5851532119e31d9a79c82ab5342b7e6f1eafd6efeb26d51"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h29.stl",
+      "sha256": "86e77a8b3976a7953a9988e182a743bb246ee4269039f9cc4dde9d633c4dd6f1"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h30.stl",
+      "sha256": "3f6e3e014ebbee57396c51248c12bdb8167ceaafd003974e61aac90ba7957376"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_15_f91dd4c1_h31.stl",
+      "sha256": "b0af641543727d3e7741e5c6e95926b90127e1622653b6178c9147ba0d7bb32e"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h00.stl",
+      "sha256": "53d36bdbd0622a0ba9a4c7ebe4473669e991f28f536b0cd85378de12ed68bfc6"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h01.stl",
+      "sha256": "a210a77232e28264bdaae5d2be729734b213e931b7e185bfa4913dce8137c6aa"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h02.stl",
+      "sha256": "200a900a9d747b84ed9b06063976245e177af0bf8d1c17b794e9ec76e89a8123"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h03.stl",
+      "sha256": "f3186afc0302bf2a7b336e9a1f81073c78381445ea1aab9edc7c5dba6cc7f81b"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h04.stl",
+      "sha256": "d0a9f9d8d1610e8d51308cce2230a426191ebbf283766e2ce66de5f39cbc66a7"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h05.stl",
+      "sha256": "ba294cadbdef36b66b3281de5da24dabedf80ae99a75af05ec0f51dc971732db"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h06.stl",
+      "sha256": "b6718426cd1f08e293e63371feaa5e084741d27916cd0fd3726d8c7aecf45bb9"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h07.stl",
+      "sha256": "514f37922fe2d07d7c1b5bf27a9b6f48955c3fe9d5cccbaba16190e04b0784be"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h08.stl",
+      "sha256": "37635f119fc9f6160149285e9fff2fb6218da1d7927e6ee74ff0260dcf7f404c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h09.stl",
+      "sha256": "cf6b37be5375704adfa4328ab870d9aa4d0ae920d1ef62f0c5243a5710a4f95f"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h10.stl",
+      "sha256": "4bc3ae0c2239f80b22b8ebb89c75b60bcd6fabda7fb0574f3135ee4da69b3495"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h11.stl",
+      "sha256": "3ff79ce4921c00022f2d928d1395e2ba5c87167c2cc14d02bac39e9639de41dc"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h12.stl",
+      "sha256": "9241ace071f81efa0e1930545409a2ff691ea67974ffb683d5ffae614d63746b"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h13.stl",
+      "sha256": "3336512ac9c0fe0dd9b21fab8264698bb33e178cddd9f7c51e1b92a099dd509d"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h14.stl",
+      "sha256": "1a2c1040d9a8303635f11fe96e89afbbea6c1c64fbe2170623ff64268561f14f"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h15.stl",
+      "sha256": "0403bcda1c42d47335406a002797575fc0f50c2ecfd38ebdbaf5d14bf2375bff"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h16.stl",
+      "sha256": "31ee56a90e989c2a93e9d8919a9deaa651ff8e9c95b3a718e355791faed8c256"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h17.stl",
+      "sha256": "ec78158124e08896e4acc05bc025bbd2ac7b6e0918f1028e6d2c7608b8ddd84b"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h18.stl",
+      "sha256": "ad1f0cbad2c6751bfb55485fd6ad3edb586bc7b78f3fb403b620ec0470c0a048"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h19.stl",
+      "sha256": "d91c7d154561d38d2bea1d527a520ac2258aad5dd7bbb5f6700f3bf992522a04"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h20.stl",
+      "sha256": "e6f07b34563ac7e4930bd97dd9d6d852a9d73f0e7a9aeee737d8f372b54e7624"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h21.stl",
+      "sha256": "04791de27042e940ee5a6e61e77b656a28d82c319e3cc8da195237171197de65"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h22.stl",
+      "sha256": "009dc922adb95509802e995f1f5ec72b2bd56b5739dd50a887dabc2fd3b0ab35"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h23.stl",
+      "sha256": "4ac1e14a7f2d5c408f888a48a3c378abcce351e9e036fc9ee1097d49a4000fc2"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h24.stl",
+      "sha256": "4ac329c58df3e3dc0109b53d16931f43f0d79ce6e8292ee663babde3eb991951"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h25.stl",
+      "sha256": "7020e410753753f5fea754788e6139081bd19c64db90ed6da11992bbc80dae25"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h26.stl",
+      "sha256": "c9fde0412f574f8e3c187e4ce40511e22559c434e92886b3f60f733c95f3dd02"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h27.stl",
+      "sha256": "58ff7278d9bab545520f0005d8266e149dc410ad063aefbc190573001d84ff1d"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h28.stl",
+      "sha256": "98890a857b1d573fd8528eda39521fa1d4331083ae4d0fdacb4bc314087fbc1d"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h29.stl",
+      "sha256": "f91e13cbac27482822fb88df7d544bbe318fac969bda5be2125f895bd3e4eeb6"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h30.stl",
+      "sha256": "56731e22373be7278b33e3b3b406eeedc23da8f14d91968d7409865574f99867"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_16_2e9e86d8_h31.stl",
+      "sha256": "a2863481e6b831ab653cdc6878d134e7a5551f8084f6de1cca7e149f14c70c99"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h00.stl",
+      "sha256": "a14461a3df38dea257d6d38d9517158db31fdb182bd861f5b51ca43e134bc868"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h01.stl",
+      "sha256": "7473582d5b13b6e0edd4cbd3936cd30dd8f88e4f81c6ead7f533679754790054"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h02.stl",
+      "sha256": "38cfcbd0b43f0f419ee104042fc9cf95bfb34eebe8e4080c8b4c370e401657f2"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h03.stl",
+      "sha256": "e7f362de186f757f8c6cfdcf7a27fa3189cfe6b1a42c5669a46b629458250978"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h04.stl",
+      "sha256": "989d23aebe4c994707e5478e612041cc8697eb7a2483b8b9a4fb39a4363dd1a3"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h05.stl",
+      "sha256": "37e3e03cbaf1eff86d067c80ae2ac4c442f0148ed298059e4f7cc834c4e0848f"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h06.stl",
+      "sha256": "5fbdb44243a53dbe31dd651558903b13463d800eb5ed29443c7c32a50df35525"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h07.stl",
+      "sha256": "2f25bbb6fcaf2754b08287caacf3423ba878ca03a8d0ae8466dd031c0948da5b"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h08.stl",
+      "sha256": "781e44852467ce88c64cb69ed834b5ad09b912092362723baaf065068361a20a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h09.stl",
+      "sha256": "e0bf7b131c026b3f8348ce1fac17330306b210e48e93d0d152fd775c5cd1a856"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h10.stl",
+      "sha256": "4520d3405111a4c8806cfcf7c64cc770cca1c4bc9b059aaf8270bc108637a32d"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h11.stl",
+      "sha256": "141a9d0a6685762cb48c9eda2945d2bb8d533916830b11ca4061aad22bab0469"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h12.stl",
+      "sha256": "90f30a00516dee7172842aeacfab1eaedf43114a7304db9e07ec8dbbc2576645"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h13.stl",
+      "sha256": "555add9d2e8a9b5c80940bf441b4f2537a6319aa51483b5ab0d4d98c498bbec3"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h14.stl",
+      "sha256": "e7622f3f52ba072ec797541b2c83525b3237df1e618b6b3bd2e1804ceb8da56d"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h15.stl",
+      "sha256": "6535c96039a411a14f94a53d2d05c6ab61d0b4495b524f43cf3518fabfc2180c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h16.stl",
+      "sha256": "ec0577e0720fc11ccff07c8f5ae3d35d2d484172171fe9d68969ac84b711bc02"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h17.stl",
+      "sha256": "5c18ae6371113e8647aaabda60f4eabe97eb84dc950731d8587e99d2cdf27025"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h18.stl",
+      "sha256": "9d4540bac53b3bdd47088ba23b6142d3cb732fb636a9e6f0da3c02eb6fd5744a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h19.stl",
+      "sha256": "6b8978784a9980d5637b605129b60c49425f67d3fb63e38e05fa1aa5df6f5fbc"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h20.stl",
+      "sha256": "3255bab0f7d3567f3f021be6215cfea33124ea6ca65394c0d07f8002d42a7586"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h21.stl",
+      "sha256": "8e1438653c37fb2157af758f9f05b23ee0ec99454990f7067c74ebe67b1f35bc"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h22.stl",
+      "sha256": "810aad1ace665ce628bc0a10ad5fe6a291e1455c0f1df46f31c016e07fc1c53a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h23.stl",
+      "sha256": "589c4d0f9da66c140782d717d1549f256e3fdd99b4aa833e2e3cc2f8aac0790e"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h24.stl",
+      "sha256": "ad68b4183e1eab99061e3e88e9e66216aada2c265194f2fa3a3eebd33b4044d9"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h25.stl",
+      "sha256": "201a41945bd3a5b347ee3b0c673b1a522af465d09b1e4b2c0f1069cbfe6df84c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h26.stl",
+      "sha256": "2d8a5595d3f80f2b35b9a3f40823d36c32fa5e04e375f2f19a38b823fe5934c9"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h27.stl",
+      "sha256": "0ce3981be05d4a2030eab2d98b59aff0c1204d9b864799401ea5096802255710"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h28.stl",
+      "sha256": "58320c7a7e4b22deb31b4b4256510eae83c4d08e160308088068055ee7e182bc"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h29.stl",
+      "sha256": "abd32dfd43ecc2406ca1e4d765ba2e03d1fc228cf6e2b78556d07e8bdf85c3b7"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h30.stl",
+      "sha256": "d53dfe00ca9893e0b36b999a78f8ee6232b42b43ba024af3e51603e3acbc919c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_17_2f1665df_h31.stl",
+      "sha256": "55d5791c0169ce4d56fa582263d0498ad8ef58e52369da1c4cff836ca0cb913e"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_continuous_base_00.stl",
+      "sha256": "3222e021ce950d6b60e141e9232ddf258d4174c628d6554db62194aca494cce0"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_continuous_base_01.stl",
+      "sha256": "2c6686e709f0ca03c2ab6b15ab8ea497a08c874f105beba9d5dde8f1abc781d4"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_continuous_base_02.stl",
+      "sha256": "9a35ae7bdb4a0142977365980e375b364d6d53bd48f11700caf9dd09b207c484"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_continuous_base_03.stl",
+      "sha256": "cc908a9a3a312875481d771709daf4f15d909e22dd10e6d475cadd3be49c1dee"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_continuous_base_04.stl",
+      "sha256": "79bacd8c8fb96f19912b1fd5f6a6e2b44a678af877bb165f1c67aecac8266c39"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_continuous_base_05.stl",
+      "sha256": "9bbeb432495fc594b32c52ee8eaf14171125c50b9d87829794cafade1adf1d8c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_continuous_base_06.stl",
+      "sha256": "094b70c6e3bda35a1b38a2df677d5d3a391a8f0d3d0c95232b601d97549b3c33"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_continuous_base_07.stl",
+      "sha256": "b581b093bef1be6bc53d3d643515b7747eb515424275a7486367e0bd9e0a0fd0"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_continuous_base_08.stl",
+      "sha256": "ff3f1589e5f42a3e797eb47a8e80766972dd23520fc516264d797e7d370477d2"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_continuous_base_09.stl",
+      "sha256": "eb08afcf205fc539318a443571f5a2fdcb28d2f21de1fb21abf976ab38dadc91"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_continuous_base_10.stl",
+      "sha256": "0a0a964a4e1824adae695ab1c5b9657c7f28940dda731842dd1943764cef37e8"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_continuous_base_11.stl",
+      "sha256": "194dd631bccb350ef804f4ca59dd6363eb430fcf589538697b77948dcbe2968f"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_1_00.stl",
+      "sha256": "f8f49886f572781386dc42c1310e563d5814d8dc5e6d3c8cb773952a0d1dce4a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_1_01.stl",
+      "sha256": "0697a97a8c8397f8928cf1a9b721b7d0cf561c4ca6ecf909f6575f87dc09f1d2"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_1_02.stl",
+      "sha256": "eaf8386374290515836ef902f090bb37ee223c931eb1ed95ea77f20643e72132"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_1_03.stl",
+      "sha256": "9178b0f84f04d7b63d38b1519b762f3bfb0b6ee0ae61a28354a0ab8bb6fb26b5"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_1_04.stl",
+      "sha256": "e947dc9f30e1c035043d50585ad216b51ab41a96e4b15d50d326218d1d24a8ac"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_1_05.stl",
+      "sha256": "9d61ea288ebf1f870aaeaf0fcbd11987dae9d2740cbc71e110fece0d9ba37676"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_1_06.stl",
+      "sha256": "f4a31be5e782c698875f45cc7ab53083542b5d51b5fce128a191e2674163514f"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_1_07.stl",
+      "sha256": "fe78494e162678ccac8bd1c22ef7c6f70dec5bb43d3f5987a5224af14e635272"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_1_08.stl",
+      "sha256": "cbba697e28aa06a65c64c36c472f8c1a6ed7d954e83efcfdff5a77b5029f460c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_1_09.stl",
+      "sha256": "2f5d5b1d4471cd1f383487d619c606762f155f205fe376762688094490097e83"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_1_10.stl",
+      "sha256": "633a980da20510c15b15e7ccc65eb45f19de5313faa94b4274d7ee92a2627a12"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_1_11.stl",
+      "sha256": "ebfcc7243d9fc5da9d52fa91b6a444672eb336c2fcf1ea5eea1573b4cb0d777b"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_2_00.stl",
+      "sha256": "50b918bb71492a96b4e8207e5e2a0d51b3319e998cfedbda43e423966e0cf37f"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_2_01.stl",
+      "sha256": "60deb3fb75c77ae4fdcf7cdef0e043eb1169a26acb057f48c9d3f0763997bf7f"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_2_02.stl",
+      "sha256": "7ac58691840be878da7eab27f11f46fa42cf27eb84ed9c176f7f757d93efb61e"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_2_03.stl",
+      "sha256": "eccb1ee2c2c8177cffa41842d4e07cc1377e355f0da365e6f47d63baa2b90ddf"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_2_04.stl",
+      "sha256": "51406242eef72403d591bca9bca879b2d898a26d9e1dcdcb95ba664aec25eea9"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_2_05.stl",
+      "sha256": "e0a02f72b42a40217e50056c6a67cde5ccdaf4dc3027a03f7235a96bd66882a2"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_2_06.stl",
+      "sha256": "6a699d3d807d9eadd4b221965bc6983d29bf54f655a2c8ce6ed82179e642138c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_2_07.stl",
+      "sha256": "8cfc999b891fc0991c0b70fa2d118b44301ee2679eeea4d94051e9ae7ea7cf8c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_2_08.stl",
+      "sha256": "1e3646ec4a1f4b217be925472b6f3e8a695ec99a97fbb72516ef22f0da7a00ed"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_2_09.stl",
+      "sha256": "2434cc339775396659f7b565565eaaef96598c916a68610f98d1030e95fd5069"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_2_10.stl",
+      "sha256": "80ec63b6260e78e299c264a1d5774b99decf6a2af99ca53143405435a8fa019d"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_2_11.stl",
+      "sha256": "7ba8dfddefbf8eb1ac48f79aa14515396c1bfe85ab1d69015269a37358d96e1b"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_3_00.stl",
+      "sha256": "5bfeea91557ab926b7867ec116325cc3980045ec6916861199c166410e246c76"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_3_01.stl",
+      "sha256": "be95dd2fb8fde568a15b1cdf8916d68c3dd5a10babc9628a1b1640a71d928540"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_3_02.stl",
+      "sha256": "0ec7a98b4b692a03df3570b5edf6d92a43163cf756729a7fedd20f678d4f6226"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_3_03.stl",
+      "sha256": "79b04e766be7f39c8b7bb63a308781c1179cadda819b85a81abcd02120ee1276"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_3_04.stl",
+      "sha256": "99eb52525bb1eb7e96c79023fb7d9649873e10ec0e6f66c162dcd47e2677de41"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_3_05.stl",
+      "sha256": "306703becc6be1b52371651f165ae5c88be25463471539778be775133ae9efce"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_3_06.stl",
+      "sha256": "d4147d84b941814d93571d18aab23a13a11e030c20647f856c8654217e474828"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_3_07.stl",
+      "sha256": "d66893d13faf2ed60bfa87198b8e28ab20cf66f1ddd748ad92b59e47106eab83"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_3_08.stl",
+      "sha256": "d9d0f982818d94947f6972763402efea34a0cf31ad6dffe9a77e7358a02889de"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_3_09.stl",
+      "sha256": "7209858a5da0a8c07e8600d2a274537ac570d925cafb837943986203a9e57ea3"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_3_10.stl",
+      "sha256": "a44a4f57279d2d74a7a94a73a913971f3a45a762da887df4ca8ab920364cee69"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_3_11.stl",
+      "sha256": "0ab117b7191acb7ad1299699d9821db0a29400d6886cef9fb74cd0a77486cc23"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_4_00.stl",
+      "sha256": "3ebe87d46ca8bc36031f8c02f5b3cba4a6f58d29d1e911b4c540b7069904cf53"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_4_01.stl",
+      "sha256": "0d389d2a7fb0e9683eb7d2f21f49156a4d8aab17eb17cf78303d9b53013577e3"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_4_02.stl",
+      "sha256": "8141c724697c732a55953e2584d405acede4df5f24379661abe9b630b1257a4b"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_4_03.stl",
+      "sha256": "e9cc463bd5ac3a1e13e0f2e95445f495d0cb946d6918974f4bc668a16304dd94"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_4_04.stl",
+      "sha256": "fd63cfa84e35cc5e4b70b6cd288cc1e68aaea87703d17306e6930e684e36cd6a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_4_05.stl",
+      "sha256": "dbd40f7a66cd3421e689e5351e7707ebcfa5fc7b0cd266f505dbd4236a369494"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_4_06.stl",
+      "sha256": "13607f97a695ced9b532c2fa48054d1c2915549fddbc886235231d93f6f0744e"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_4_07.stl",
+      "sha256": "d0b9efa6ed8776c5b44e2365729881b0a72cd38f6f3ebc111880d308a8d339be"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_4_08.stl",
+      "sha256": "da8433165d8c4b2dd5c9c4f1032ee74f78c700ee827cb15574742b4ac1fd2bc3"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_4_09.stl",
+      "sha256": "5e7d023a953cf8b0690fecc2adc48222f7be83d9dcb30b6edcce32382b79a9c9"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_4_10.stl",
+      "sha256": "6ddd221f8c4e27b904481fc1ea87a17ddacc3255c620d28fae62f48f8d15b59f"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_28_mean_mean_tooth_lane_4_11.stl",
+      "sha256": "7e9d1f8991e29b7605d7a07257c27b6297efe343df495a4d0257441318fabb07"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h00.stl",
+      "sha256": "320eb8e45f368a056f31c26c5d56a3cda931576ad1e8f926d72436440ce61c5c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h01.stl",
+      "sha256": "8c80bc8a4eb6255271ceb9254b76df72053e26e33a38323580f8c77a54bcaf8a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h02.stl",
+      "sha256": "5936b27d3fa31456a31e3f7a248fd247755c5c09334e9c2772df4000c80b566d"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h03.stl",
+      "sha256": "653915de4b20cade5ad34a5de28069045edaf8d243fc9cc6468116734c6c9932"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h04.stl",
+      "sha256": "92df839774e46008c7b162385c761289d7dedc493b8d94b519a80a05545a7221"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h05.stl",
+      "sha256": "7bce158dc78b29fa9716be1f6d9771e2b7d75fb65d2c1601440546e438663ec6"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h06.stl",
+      "sha256": "cd7aa17adb5c2293c57edf2dd126608ec2ea7560e96694e24dfd6edb1787c379"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h07.stl",
+      "sha256": "db7c94531ed251ff92f4c99d10f4b0aba6666ac76ac96d7c378bebc7a6121652"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h08.stl",
+      "sha256": "b7321e6f7729d65fddcb34f7fa403da9ce7b9383f68579167f3125189334eaaa"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h09.stl",
+      "sha256": "8a646fc1a6ec2ae0d1bf6a2113f3388b3afae1a1b83a90280294fc1e8a8c0628"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h10.stl",
+      "sha256": "783069ce073390e836c6b6f62b098f02b5eeac2e5a2ef33614aea227f081ba0a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h11.stl",
+      "sha256": "d816b84c5c9a4e46f819560a9bc2a915ed6abaaa98807343ed26200c44c49567"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h12.stl",
+      "sha256": "108df83f267277e6d99d747482e45d88226586ea3cad2ab7e116c3fc00add5da"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h13.stl",
+      "sha256": "a0b6a1669b92938424a73c686391669ddb241f827aa29e05d7643a0ed4b9f0f8"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h14.stl",
+      "sha256": "4d16fabcceee83e4d0d6304e8e1bb9126c57f810b1605fbdd1a73bbb08a46f89"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h15.stl",
+      "sha256": "b967b5005f537ed9f8a3e68e8ec191b923e5f901f16763ff4f24e30b14c64fa7"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h16.stl",
+      "sha256": "405c377f10048fc2ac50005b54c3c851853e95ffd4d2b195a8ab5feaf728fee8"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h17.stl",
+      "sha256": "84dda121417f0e03b999dc3e1641c428f876dae192bb861a3039500599987ea6"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h18.stl",
+      "sha256": "78a48abac84504861d54bcaf14441d478009d1bfb861313364d3a9e23d90b496"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h19.stl",
+      "sha256": "4f2ade34a04f658e288163c253f50cd09ed11e7d6bb434364d09a2e5d119be17"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h20.stl",
+      "sha256": "940cccd57339e4180297125385108759fe7d0b83a59346caaa266e8d78a287eb"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h21.stl",
+      "sha256": "0b20ff8f1a91239ee28b1de2277ead3311b53afebbcb61163765fa3c9fae0943"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h22.stl",
+      "sha256": "cb08e2c8f686568c274c91e18be1488ee1ed3c6ed64da4679fcbed35469ea607"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h23.stl",
+      "sha256": "6c454e98730ae83873f8d4123f44eff5a4209bd0464df78561ead254e8923be6"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h24.stl",
+      "sha256": "6d2112b95c2885ca9e8b84b55c728483db6681d1b05a6dd3d1e1045d73199e4c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h25.stl",
+      "sha256": "c7ea91e552dbc98b943ca4aeff241cd4c3df2b2d1992195b6e6fbfd2a4681352"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h26.stl",
+      "sha256": "7dac09a133214f2ff2e3015d4ce25d8d338094616b2aab9ad1f1c1077b8f179e"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h27.stl",
+      "sha256": "4e3da1d9e27baaa541f079d505e7d2a96c37b5b75843aa48c8d6c28c9dcf2cdb"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h28.stl",
+      "sha256": "7c72269029a87fc8cb1cb98faf3a25a84fa39f81f93d571cd6a2521ab393cd1f"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h29.stl",
+      "sha256": "7f6c8abe0ad17e6aa9daecde4fb43880c37ff4796062f93a3d121746b32ae373"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h30.stl",
+      "sha256": "80000178319e0fd6825bb6ac378ad8de309561fdd3a6d913691b57ecb267f8c5"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_3_1_b6ce482c_h31.stl",
+      "sha256": "8eefae2205abd919e1b70d8af5b6731aceabb803b30c8ebf15277d6677d81534"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h00.stl",
+      "sha256": "dad07e1eeb9ead63f70f3ddff642e7948cdc9b7ee96110cc7ec736bee072af4c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h01.stl",
+      "sha256": "543f2cdb3900c379431893e764e04f9f370185ce76aea6df3280073d4771d6fe"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h02.stl",
+      "sha256": "defdd07d089fe5630832f227cdc8c7fb67471f3d58d4d0160c00a35922100b86"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h03.stl",
+      "sha256": "ad61abf63d15d8d4c408300abdcfb5e670422fd612a6f9c072ecdac1250b88c6"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h04.stl",
+      "sha256": "57c783942f880724c195499a5fe8ab9373fd308b1758f13b006239ef1e077732"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h05.stl",
+      "sha256": "5f88193f40b5642fd43a615670157a9c013950b6ff3aee27c4a65d1dfb12eaba"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h06.stl",
+      "sha256": "6c6883f87dd7873c56dd864cebaa3b50cf34ece368ee4681b6baecf017217215"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h07.stl",
+      "sha256": "4839eadaae8d503fe192aa3c47c1e13c5f7012ddaebc2755dec1f1089d5968b4"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h08.stl",
+      "sha256": "1c1751fe8b80bfcc503a30511e68a41e35e0dd16b91a9a3d496e459f7a634426"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h09.stl",
+      "sha256": "d9d78fa65496f69bfb6eeb23625d39e79a00a8e56695d8c96c98c8e14f52bbbf"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h10.stl",
+      "sha256": "b134f5b241939fdc4fdf70e75086f71525d24f94fbd2b3bb88d2bec02f364ac8"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h11.stl",
+      "sha256": "92aa9f9f7d2c06b2a597d5cb355266d37552e2bbddb09ffb6d01ca0a3afdab44"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h12.stl",
+      "sha256": "ed347df3b6c77c0990d897e2fe9130f96c7a55c4c9c17980ac113662d5e94524"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h13.stl",
+      "sha256": "8d5f7c6c36b8e96a324992d3969f3d2e515bc74f379700b5055f922283dd008c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h14.stl",
+      "sha256": "1417f627d07541a2d9ed492b74341d3a2a505f0a77691b1a3d406ceb1eb8c468"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h15.stl",
+      "sha256": "feb7d090c2451a3760fe61d85b9bd387491fb4893c0a673fa0c1e836300cc122"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h16.stl",
+      "sha256": "a635c76e410e0f0736dca97961d7faa1f7bfa80d25ec7407064e13a3c2900901"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h17.stl",
+      "sha256": "eb9cbf2cb7a6abed6c282097375f5036d29f6168d2c46c13e44b7445d90dec58"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h18.stl",
+      "sha256": "ed217207fe3c5c213c9be7a843986f643f287d411396cd5efa25c26e7ad00955"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h19.stl",
+      "sha256": "aeda0101debf74d6be6e18b07e5c683299000d52810171913adbdd66ffbb6008"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h20.stl",
+      "sha256": "d30f59283133736a95f1e1b06318508f3c0ee8bd243f6276094d131fef4f11b8"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h21.stl",
+      "sha256": "e5c1472d78da12758ec3ffdc3d4d442e651c2b018e2cee19a07a8585147930ed"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h22.stl",
+      "sha256": "bcca973bb3cfedf648d938bc54885048a9d1b97cc6d40943008c84b08d2e9d5a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h23.stl",
+      "sha256": "ce53ce2ef60688863bea8874c4c5fc647c5fcd47f70fb5597f68ac1a456547ac"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h24.stl",
+      "sha256": "9085683231f38cd5b86b98c0d29f1986bc34062630e0e3ab2f3579c574b1f319"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h25.stl",
+      "sha256": "4597f5494ede4cc2cfac915d306849882a6856421246ed5788a79c8da34ff0b9"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h26.stl",
+      "sha256": "43876fabe35487b6a6da4438823441910d8dce0f5b2f8c8fe0e4d2b1d5f67440"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h27.stl",
+      "sha256": "dd9f0ac6346fbcdee0a462031dbe190367fa8eb19fa56c0b45fd6c1d9ada667d"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h28.stl",
+      "sha256": "b80cf3835faef4e807d13bef24be1b181c0eeee658d03586948966bbab29f19c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h29.stl",
+      "sha256": "523ebd5d37b3bdcd548d8743cdf22c0f2e4f5c115cb0d8532121a4bc1743fff4"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h30.stl",
+      "sha256": "88f2b7d75eb59aaf863ec8833bc2b25fcb13ed00896fe47e78ec723d8535f2cc"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_6_1_d5f03cb9_h31.stl",
+      "sha256": "4a7d4df1db7fbdee15e51c017a7eb23d105110a1646b4f2be71cf06a99eac354"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_7_1_fc5283f6_h00.stl",
+      "sha256": "8aed25ecd02818ca38c0b6b17b3d37b1fe4749991afeb83fc9258377f0418c3e"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h00.stl",
+      "sha256": "78449617a757ce949b4f4eaf810c8a1dda32a7e3294d22db41761fca4c59e492"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h01.stl",
+      "sha256": "c02dee5b0ce739361d0073da26eb2352b01acce687a5434204868f3ee099ef68"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h02.stl",
+      "sha256": "13dbc3bbd40c29a6d26c3cfc57886e7bb4f26a128989c9b2935e36e9a7ade1cd"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h03.stl",
+      "sha256": "4daf215b22b9a2b84677788a825d7e64167411ae2e0da3cb2e43f42ecaf7ad1a"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h04.stl",
+      "sha256": "a137ab39fb69c176f239170c2ee8cade38e36b4de6338a0510ce0af6bf29cad0"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h05.stl",
+      "sha256": "6a56434d1152cb550f047e59a9ea6113eb7f9b98dbd4ffcb0c6597d07ad7f699"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h06.stl",
+      "sha256": "f9b7d89081a9ad46244cd2609ec955b250da5202ab6b917297d4d22eec65c26c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h07.stl",
+      "sha256": "cc1521df44e2eac6f24f5998deafd72141dce78bda55376e799c6f5de56e9381"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h08.stl",
+      "sha256": "d9d3e26553b36765c6c5380ab945d141d657dd295c9b5b16b126948eb6caff89"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h09.stl",
+      "sha256": "198144b1af70d7efbf204d22ea735ad8fad910f70115581c193481daba356bcf"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h10.stl",
+      "sha256": "7bd5adbb9375ede15a4d85d5b4263ebf191816e0d73c892bcfc47fa09ccc1d44"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h11.stl",
+      "sha256": "107b5e92e124050467484cf93e9003f30926d4999ea3614182ada71bea2c0c94"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h12.stl",
+      "sha256": "229ce2e573a6a6476544898f6fbdf5d244f814587bae1a08defe655364c79407"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h13.stl",
+      "sha256": "227106595ae25bccae04dfa4abedbc06718888756ea9690617c6df943a9d7a42"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h14.stl",
+      "sha256": "c764f2a96e92b8e49179235082c25c1d334d3e9b8d906fa37cd280f9f0a1485e"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h15.stl",
+      "sha256": "dd568ab3da3a6f51377220471e858997400f9209fdc2fd7f4238fe8c57f2aafc"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h16.stl",
+      "sha256": "8e1143ab81b98ad445487d32d50239adbadb42a2990ba3d029a8017c3a9c5f6c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h17.stl",
+      "sha256": "bdcd1669fead5d42cc25ff2d612f4ee928277f00254061fde5b2b42bc36ba320"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h18.stl",
+      "sha256": "9305cc31cf0ab9f59f4480bb04ef0ec9b2630e85c74b882058956a118d525249"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h19.stl",
+      "sha256": "3f224d36ba7dd97a412d0bd3cdfacbafa059204fb8be930c988f7ab2d5a3701f"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h20.stl",
+      "sha256": "e09b70e407389274477cf74164e1ac7ab18c10e55f18005194b0c4e9492cdf57"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h21.stl",
+      "sha256": "51d480bc430aaf63362d8bfe92a77193c698b5e042975b7d460ef58f0af64c2c"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h22.stl",
+      "sha256": "e639df9455bb5b4719dbe56fc69f82236b81f83221ba49d494eafec986ee3537"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h23.stl",
+      "sha256": "51ea2876b59554d021482e080637055d0cd793162e77d0fefc3fe7d04f4fc858"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h24.stl",
+      "sha256": "5deb1862a7130362729071b224d5bbe00d9b82ec627ae1ccfb37807ff96274c8"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h25.stl",
+      "sha256": "05f37dcf779b981022ad8ec8053945a2248eca19557911a43f7892145388a3ff"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h26.stl",
+      "sha256": "48b5b2cdeca925a5c26c213eadfeca41f570d8536c3457994aaddd97b62de719"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h27.stl",
+      "sha256": "5a271dedabf3b55f276fe0c06b7204a6055cca6a726007b7815033bfef501956"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h28.stl",
+      "sha256": "3fb50eca769153a9c3f4392267b1fe1279f7a742b1aba2467327025c71a3ce40"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h29.stl",
+      "sha256": "3043d9b92f19b985140c02b857a0d71e56cac069ee857abf0c2d3e1fc57a3065"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h30.stl",
+      "sha256": "3a7b698f401aca8a67da22e87a07d98e855e5f2c20e4665514131d6ddfa6b3e5"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Part_8_eb456823_h31.stl",
+      "sha256": "627e0818ac30ece1623dcb541140ef95a4b16d882ca13717f37c991439431979"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Spur_1M_18T_d14fec9f_h00.stl",
+      "sha256": "9ddeda3d0414a7212c145da80351640bd104252c136909cd9bd56d1a248fb431"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/Spur_1M_30T_b90da91b_h00.stl",
+      "sha256": "fd4f69b75ab6ed5c0bfc12d62c99af9f7e2ff849b685bb65eb8aa9091a0bf09f"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/ThdSchPat_41d1a5dd_h00.stl",
+      "sha256": "d12fe560f8f76141a697ec2e676abf5ef8f229678b19fcc49b3a37ddf931a8b9"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/__b0173d15_h00.stl",
+      "sha256": "1198e96ebfd3951beca7644836e0d3351a0623050c2560443b537bb0a9e5d3aa"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/__1_4f9462da_h00.stl",
+      "sha256": "514148627d7b6a116ba87630f06c0de05a64f44ddb1d7f04734a26fe33dda1e1"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/bearing_flanged_c26af226_h00.stl",
+      "sha256": "8f3435e6d60038e9d38df70fc36b3244a200f3c219bb0bd81688c5d86d872917"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/bearing_flanged_1_446064be_h00.stl",
+      "sha256": "1cd896e421fa86493a6f020b9b2e2be573d09db67e987977903334daff023fd2"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/collision/cad_v2/bearing_flanged_2_f5c3eef8_h00.stl",
+      "sha256": "e9469a6126a7d29e652f1a46f4ea1332f4fbe9234cf67873447c6eae0a426cb2"
+    },
+    {
+      "file": "assets/src/blueberry_gripper_description/meshes/cad/Part_2_1.stl",
+      "sha256": "b2fc3112b76ffe4c560879a9285e3b4b94bc773e2158aadd63ed07638c258203"
+    }
+  ],
+  "source_project": "Blue_Berry_Harvesting_Bot",
+  "openarm_source": "https://github.com/enactic/openarm_mujoco",
+  "openarm_revision": "06b4c8ad6d547c3faaa3bf780629ee3e1ac2b0d0"
+}

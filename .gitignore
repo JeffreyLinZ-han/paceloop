@@ -1,0 +1,30 @@
+# Python and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Runtime data and build output
+logs/
+backups/
+build/
+dist/
+model-build/
+*.egg-info/
+*_validation.json
+*_log.csv
+MUJOCO_LOG.TXT
+*.log
+
+# Local configuration
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
