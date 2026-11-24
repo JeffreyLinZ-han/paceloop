@@ -18,6 +18,7 @@ from pathlib import Path
 import mujoco
 import mujoco.viewer
 
+from gesture_model import DEFAULT_MODEL_FILE, GestureRecognizer, TinyGestureModel
 from imu_follow import ForearmFollower, LiveControls
 from imu_hardware import VQF, ArduinoBridge, RealIMU
 from openarm_model import SmoothControls, bite_angle, controls_for, load_model
@@ -53,6 +54,10 @@ class BiteTimer:
         if not (self.armed and lift_deg > BITE_ANGLE_DEG and angular_speed > GYRO_THRESHOLD_RAD_S):
             return None
 
+        return self.record_event(sim_time, target_s)
+
+    def record_event(self, sim_time, target_s):
+        """Record an event from either the tilt proxy or the learned classifier."""
         if self.last_bite_time is not None:
             interval = sim_time - self.last_bite_time
             if interval < MIN_BITE_GAP_S:
@@ -80,12 +85,22 @@ class BiteTimer:
 
 
 class PaceLoopApp:
-    def __init__(self, model, data, bridge, csv_path=None, imu_source="sim", follow_imu=True):
+    def __init__(
+        self,
+        model,
+        data,
+        bridge,
+        csv_path=None,
+        imu_source="sim",
+        follow_imu=True,
+        gesture_model=None,
+    ):
         self.model = model
         self.data = data
         self.bridge = bridge
         self.hardware_imu = imu_source == "hardware"
         self.real_imu = RealIMU()
+        self.gesture = GestureRecognizer(gesture_model) if gesture_model is not None else None
         self.was_live = False
         self.last_flush = time.monotonic()
         self.recenter_count = 0
@@ -156,6 +171,9 @@ class PaceLoopApp:
                 "gyro_bias_z",
                 "imu_at_rest",
                 "recenter_count",
+                "gesture_label",
+                "bite_model_score",
+                "gesture_model_source",
             ]
         )
 
@@ -267,7 +285,9 @@ class PaceLoopApp:
 
     def _make_timing_panel(self):
         label = (
-            "GESTURE TIMING | experimental tilt-based bite proxy"
+            "GESTURE TIMING | simulation-trained IMU classifier"
+            if self.gesture is not None
+            else "GESTURE TIMING | experimental tilt-based bite proxy"
             if self.hardware_imu
             else "BITE TIMING"
         )
@@ -297,6 +317,9 @@ class PaceLoopApp:
             frame, text="Bites: 0    |    Last Result: --", font=("Consolas", 11), anchor="w"
         )
         self.details.grid(row=1, column=0, columnspan=4, sticky="w", padx=6, pady=(8, 0))
+        if self.gesture is not None:
+            self.gesture_status = tk.Label(frame, text="Gesture model: warming up", anchor="w")
+            self.gesture_status.grid(row=2, column=0, columnspan=4, sticky="w", padx=6)
 
     def _make_sensor_panel(self):
         label = "REAL IMU | Arduino USB / I2C" if self.hardware_imu else "VIRTUAL IMU (MuJoCo)"
@@ -325,6 +348,8 @@ class PaceLoopApp:
     def calibrate_imu(self):
         self.real_imu.reset()
         self.timer = BiteTimer()
+        if getattr(self, "gesture", None) is not None:
+            self.gesture.reset()
         self._reset_follow()
         for values in self.history:
             values.clear()
@@ -384,6 +409,11 @@ class PaceLoopApp:
                 *(self.real_imu.bias if source == "hardware" else ["", "", ""]),
                 self.real_imu.stationary if source == "hardware" else "",
                 self.recenter_count,
+                self.gesture.label if self.gesture is not None else "",
+                float(self.gesture.scores[1])
+                if self.gesture is not None and self.gesture.scores is not None
+                else "",
+                self.gesture.model.metadata["source"] if self.gesture is not None else "",
             ]
         )
 
@@ -400,6 +430,8 @@ class PaceLoopApp:
             self.real_imu.update(sample)
             if self.real_imu.segment != old_segment:
                 self.timer = BiteTimer()
+                if self.gesture is not None:
+                    self.gesture.reset()
                 self._reset_follow()
                 for values in self.history:
                     values.clear()
@@ -410,9 +442,16 @@ class PaceLoopApp:
                     tracked = self.follower.update(self.real_imu.q, sample.t)
                     tracked[-1] = commands[-1]  # Gripper stays under manual control.
                     commands[:] = tracked.tolist()
-                event = self.timer.step(
-                    sample.t, self.real_imu.tilt, self.real_imu.corrected_gyro, self.bridge.target_s
-                )
+                if self.gesture is not None:
+                    if self.gesture.update(sample.t, sample.accel, sample.gyro, sample.restart):
+                        event = self.timer.record_event(sample.t, self.bridge.target_s)
+                else:
+                    event = self.timer.step(
+                        sample.t,
+                        self.real_imu.tilt,
+                        self.real_imu.corrected_gyro,
+                        self.bridge.target_s,
+                    )
             if event == "TOO FAST":
                 self.bridge.alert()
             for values, value in zip(self.history, [*sample.accel, *sample.gyro]):
@@ -507,9 +546,19 @@ class PaceLoopApp:
                 if not self.hardware_imu:
                     gyro_step = self.data.sensor("imu_gyro").data
                     lift_deg = bite_angle(self.data)
-                    result = self.timer.step(
-                        self.data.time, lift_deg, gyro_step, self.bridge.target_s
-                    )
+                    if self.gesture is not None:
+                        detected = self.gesture.update(
+                            float(self.data.time), self.data.sensor("imu_accel").data, gyro_step
+                        )
+                        result = (
+                            self.timer.record_event(self.data.time, self.bridge.target_s)
+                            if detected
+                            else None
+                        )
+                    else:
+                        result = self.timer.step(
+                            self.data.time, lift_deg, gyro_step, self.bridge.target_s
+                        )
                     if result is not None:
                         event = result
                         send_alert |= result == "TOO FAST"
@@ -563,6 +612,11 @@ class PaceLoopApp:
         self.details.config(
             text=f"Bites: {self.timer.bite_count}    |    Last Result: {self.timer.last_result}"
         )
+        if self.gesture is not None:
+            score = float(self.gesture.scores[1]) if self.gesture.scores is not None else 0
+            self.gesture_status.config(
+                text=f"{self.gesture.label} | bite score {score:.0%} | simulation-trained; real-world validation pending"
+            )
 
         if self.hardware_imu:
             sync_status = "MANUAL / sliders enabled"
@@ -626,8 +680,12 @@ class PaceLoopApp:
             self.footer.config(
                 text=(
                     f"Arduino: {self.bridge.status} | "
-                    f"Test: J4 lift > {BITE_ANGLE_DEG:.0f} deg + gyro; return < {RESET_ANGLE_DEG:.0f} deg | "
-                    f"Sim {sim_time:.1f}s | speed {sim_time / max(now - self.wall_start, 0.001):.2f}x"
+                    + (
+                        "Detector: learned IMU gestures | "
+                        if self.gesture is not None
+                        else f"Test: J4 lift > {BITE_ANGLE_DEG:.0f} deg + gyro; return < {RESET_ANGLE_DEG:.0f} deg | "
+                    )
+                    + f"Sim {sim_time:.1f}s | speed {sim_time / max(now - self.wall_start, 0.001):.2f}x"
                 )
             )
 
@@ -690,16 +748,39 @@ def main():
     parser.add_argument(
         "--manual", action="store_true", help="Start hardware mode with IMU arm following disabled"
     )
+    parser.add_argument("--gesture-model", type=Path, help="Optional trained IMU classifier (.npz)")
+    parser.add_argument(
+        "--gesture-demo", action="store_true", help="Open the labeled gesture replay viewer"
+    )
     args = parser.parse_args()
+    if args.gesture_demo:
+        if args.port:
+            parser.error("The gesture demo uses simulated data; omit --port")
+        from tools.gesture_viewer import GestureViewer
+
+        GestureViewer(args.gesture_model or ROOT / "models" / DEFAULT_MODEL_FILE).run()
+        return
     source = ("hardware" if args.port else "sim") if args.imu_source == "auto" else args.imu_source
     if source == "hardware" and not args.port:
         parser.error("--imu-source hardware requires --port")
     if source == "hardware" and VQF is None:
         parser.error("Real IMU requires VQF: py -3.11 -m pip install vqf==2.1.2")
 
+    try:
+        gesture_model = TinyGestureModel.load(args.gesture_model) if args.gesture_model else None
+    except (OSError, ValueError, KeyError) as exc:
+        parser.error(f"Cannot load gesture model: {exc}")
     model, data = load_model(ROOT / "arm.xml")
     bridge = ArduinoBridge(args.port)
-    app = PaceLoopApp(model, data, bridge, args.csv, source, follow_imu=not args.manual)
+    app = PaceLoopApp(
+        model,
+        data,
+        bridge,
+        args.csv,
+        source,
+        follow_imu=not args.manual,
+        gesture_model=gesture_model,
+    )
     app.run()
 
 

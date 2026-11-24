@@ -6,6 +6,9 @@ PaceLoop reads a wrist-mounted IMU through an Arduino UNO R4 Minima, estimates o
 
 The model includes the OpenArm torso and both arms. The left arm is fixed in a lowered pose; the right arm and gripper are actuated. Gripper bands are rigid meshes, and camera geometry is omitted.
 
+See the [change summary](CHANGELOG.md) for the new gesture classifier, student training
+pipeline, interactive viewer, and evaluation results.
+
 ## Setup
 
 Python 3.11 is recommended. On Windows:
@@ -45,11 +48,31 @@ Use `--manual` to read the real IMU with arm following initially disabled. Use `
 
 Each run saves a CSV under `logs/`. `--csv PATH` selects a new output file; existing files are never overwritten.
 
+## Gesture recognition
+
+An optional small classifier distinguishes simulated hand-to-mouth gestures from
+head scratching, face touching, and other movements. Open the interactive replay:
+
+```powershell
+.\.venv\Scripts\python run_twin.py --gesture-demo
+```
+
+The viewer shows the OpenArm motion, scripted label, model scores, and detected
+events. Use `--gesture-model models/gesture_student_v2.npz` with the normal application
+to enable it for live IMU data. This model is trained on simulation only; see
+[training, test results, and limitations](docs/gesture-model.md).
+
+The viewer also displays per-window cross-entropy and provides a **Training loss**
+button for the saved training/validation curves. Student inputs contain only IMU;
+teacher labels are kept separately for supervision and evaluation. The network is
+an offline-trained NumPy MLP. See the [code layout](docs/development.md) to locate its
+definition, initialization, and training loop.
+
 ## Tracking and model limits
 
 The single-IMU mapping distributes lifting, horizontal swing, and twist across selected robot joints. It does not measure all seven arm joints or wrist position. VQF estimates orientation and gyro bias, but a six-axis sensor has no absolute heading reference. Use **F9** at the known starting pose to correct accumulated heading error.
 
-Movement intervals use an experimental tilt-based gesture detector. The Arduino bridge sends mode and LED feedback; it does not command physical OpenArm motors.
+Without `--gesture-model`, movement intervals use the original experimental tilt-based detector. The Arduino bridge sends mode and LED feedback; it does not command physical OpenArm motors.
 
 See [model and tracking details](docs/model.md) for joint mappings, motion limits, and asset provenance.
 
@@ -59,6 +82,6 @@ See [model and tracking details](docs/model.md) for joint mappings, motion limit
 .\.venv\Scripts\python -m unittest discover -s tests -v
 ```
 
-Tests cover sensor parsing, calibration, drift handling, pose mapping, trajectory continuity, and headless MuJoCo physics. They do not require connected hardware. [Development notes](docs/development.md) describe the layout and model rebuild process.
+Tests cover sensor parsing, calibration, drift handling, pose mapping, trajectory continuity, headless MuJoCo physics, classifier inference, and student/teacher data separation. They do not require connected hardware. [Development notes](docs/development.md) describe the layout and model rebuild process.
 
 Third-party assets retain their original terms. See [third-party notices](THIRD_PARTY_NOTICES.md) and [OpenArm's Apache-2.0 license](OPENARM_LICENSE).

@@ -1,0 +1,80 @@
+{
+  "source": "simulation_only",
+  "student_fields": [
+    "time",
+    "signal"
+  ],
+  "teacher_information_loaded_by_student": false,
+  "model_sha256": "971e741f809c1cdc8d33a53854487abf4ee71a3c90cb2ad02f8043f0c8e6ae06",
+  "model_updated": false,
+  "episodes": 144,
+  "windows": 3925,
+  "classification": {
+    "cross_entropy": 0.20165069219373039,
+    "accuracy": 0.9340127388535032,
+    "macro_f1": 0.8605091173616121,
+    "confusion_matrix": [
+      [
+        2826,
+        24,
+        18,
+        85
+      ],
+      [
+        5,
+        298,
+        4,
+        16
+      ],
+      [
+        10,
+        7,
+        295,
+        23
+      ],
+      [
+        13,
+        44,
+        10,
+        247
+      ]
+    ],
+    "per_class": {
+      "other": {
+        "precision": 0.9901892081289418,
+        "recall": 0.9569928885878768,
+        "f1": 0.9733080764594455,
+        "support": 2953
+      },
+      "bite": {
+        "precision": 0.7989276139410187,
+        "recall": 0.9226006191950464,
+        "f1": 0.8563218390804598,
+        "support": 323
+      },
+      "scratch_head": {
+        "precision": 0.9021406727828746,
+        "recall": 0.8805970149253731,
+        "f1": 0.8912386706948641,
+        "support": 335
+      },
+      "touch_face": {
+        "precision": 0.6657681940700808,
+        "recall": 0.7866242038216561,
+        "f1": 0.7211678832116788,
+        "support": 314
+      }
+    },
+    "weighted_cross_entropy": 0.25342524875413547
+  },
+  "events": {
+    "true_positive": 34,
+    "false_positive": 6,
+    "false_negative": 2,
+    "precision": 0.85,
+    "recall": 0.9444444444444444,
+    "f1": 0.8947368421052632,
+    "non_bite_episodes": 108,
+    "non_bite_episodes_with_false_event": 6
+  }
+}

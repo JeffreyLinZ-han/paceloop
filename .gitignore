@@ -14,6 +14,8 @@ backups/
 build/
 dist/
 model-build/
+datasets/
+*.predictions/
 *.egg-info/
 *_validation.json
 *_log.csv
