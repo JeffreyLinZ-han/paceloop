@@ -9,7 +9,7 @@ prototype**. It has not been validated on recordings of human eating.
 From the repository directory:
 
 ```powershell
-.\.venv\Scripts\python run_twin.py --gesture-demo
+.\.venv\Scripts\python loop.py show
 ```
 
 The OpenArm viewer and a control panel open together. Select an action, pause with
@@ -33,23 +33,23 @@ label. Its mean covers this replay only, not the complete held-out test set.
 to read an epoch. To open both the replay and the curves at startup:
 
 ```powershell
-.\.venv\Scripts\python -m tools.gesture_viewer --show-loss
+.\.venv\Scripts\python -m paceloop.app.viewer --show-loss
 ```
 
 ## Use a real IMU
 
 ```powershell
-.\.venv\Scripts\python run_twin.py --port COM3 --gesture-model models/gesture_student_v2.npz
+loop twin --port COM3
 ```
 
-Calibration and arm following work as before. With this flag, the learned detector
-replaces the tilt threshold for bite timing; there is no tilt-triggered fallback.
+Calibration and arm following work as before. The learned detector
+replaces the tilt threshold for bite timing in PC mode.
 Detected events use the existing interval timer and Arduino LED bridge. The CSV
 adds `gesture_label`, `bite_model_score`, and `gesture_model_source`.
 
-Omit `--gesture-model` to retain the existing experimental tilt detector. Use the
-same flag without a serial port to classify the virtual wrist IMU during manual
-simulation. Scores are model outputs, not calibrated probabilities of eating.
+Use `--control-mode rules` for Arduino-side tilt detection, or hold D4 to switch.
+`loop twin --model PATH.npz` chooses a checkpoint for real or virtual IMU input.
+Scores are model outputs, not calibrated probabilities of eating.
 
 ## Inputs and model size
 
@@ -67,14 +67,25 @@ before another event, with a minimum 1.2-second event interval. Gaps longer than
 
 ## Training and evaluation
 
+With the local recordings available, run `loop train`. Use `loop train --epochs 50`
+to limit training, or `--output PATH.npz` for a specific new filename. The default
+output is a timestamped file under `models/runs/`; a successful run becomes the
+default model for `loop twin` and `loop show`.
+
+Press Ctrl+C to stop. The training loop keeps weights in memory until it finishes;
+an interruption does not create a resumable checkpoint.
+
+For a fresh checkout, generate and separate the recordings first:
+
 ```powershell
-.\.venv\Scripts\python -m tools.simulate_gestures --output datasets/gestures_v1
-.\.venv\Scripts\python -m tools.prepare_student_data --source datasets/gestures_v1 --output datasets/gesture_student_v2
-.\.venv\Scripts\python -m tools.train_gestures --data datasets/gesture_student_v2 --output models/gesture_student_v2.npz
+.\.venv\Scripts\python -m paceloop.training.motion --output datasets/gestures_v1
+.\.venv\Scripts\python -m paceloop.training.prepare --source datasets/gestures_v1 --output datasets/gesture_student_v2
+loop train
 ```
 
-Choose new output paths when rerunning; existing datasets and models are not
-overwritten. Generated recordings under `datasets/` are excluded from Git.
+Choose new output directories when regenerating data. Training chooses a new
+model filename automatically. Generated recordings under `datasets/` are excluded
+from Git.
 
 The teacher is the motion script and its labels; there is no separately trained
 teacher network. The student learns supervised classification from the recorded
@@ -98,15 +109,14 @@ the training split.
 Run prediction and scoring as separate commands with fresh output paths:
 
 ```powershell
-.\.venv\Scripts\python -m tools.predict_gestures --model models/gesture_student_v2.npz --input datasets/gesture_student_v2/imu/test --output logs/student_predictions
-.\.venv\Scripts\python -m tools.evaluate_gestures --predictions logs/student_predictions --teacher datasets/gesture_student_v2/teacher/test --output logs/student_test_loss.json
+.\.venv\Scripts\python -m paceloop.training.predict --model models/gesture_student_v2.npz --input datasets/gesture_student_v2/imu/test --output logs/student_predictions
+.\.venv\Scripts\python -m paceloop.training.evaluate --predictions logs/student_predictions --teacher datasets/gesture_student_v2/teacher/test --output logs/student_test_loss.json
 ```
 
 The first command has no teacher-data argument and saves only predictions, timestamps,
 and input checksums. The evaluator then loads the saved predictions and the matching
 teacher labels. It checks both input hashes and timestamps. It does not load or update
-the model. A regression test changes teacher labels and verifies that predictions
-stay identical while the evaluated loss changes.
+the model.
 
 For four classes, the reported loss is `mean(-log(p_correct_class))`. A uniform
 prediction has loss `log(4) = 1.3863`; confident correct predictions approach zero.
@@ -134,9 +144,8 @@ The generator evaluates the existing OpenArm model using MuJoCo inverse dynamics
 at prescribed joint positions, velocities and accelerations. It reads the wrist
 accelerometer and gyro in their local frame; see the
 [MuJoCo sensor reference](https://mujoco.readthedocs.io/en/stable/XMLreference.html#sensor-accelerometer).
-An independent finite-difference test checks that simulated acceleration agrees
-with wrist motion and gravity. No joint angles, wrist position, action label, or
-head distance is passed to the network.
+Accelerometer readings include gravity. Joint angles, wrist position, action labels,
+and head distance are excluded from the network input.
 
 The 736 episodes cover 92 independently seeded virtual wearing sessions. Each
 session has varied sensor orientation (up to 25 degrees), biases and noise. Motion

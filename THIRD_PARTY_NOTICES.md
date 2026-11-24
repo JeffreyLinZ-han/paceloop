@@ -4,7 +4,7 @@
 
 The OpenArm model and associated meshes are derived from [enactic/openarm_mujoco](https://github.com/enactic/openarm_mujoco).
 
-Copyright 2025 Enactic, Inc. Licensed under Apache-2.0. The complete license is included in [OPENARM_LICENSE](OPENARM_LICENSE).
+Copyright 2025 Enactic, Inc. Licensed under Apache-2.0. The complete license is included in [OPENARM_LICENSE](resources/openarm/OPENARM_LICENSE).
 
 PaceLoop modifies the model by replacing the stock grippers, fixing the left arm in a lowered pose, removing camera geometry, adding a right-wrist IMU, and settling the home keyframe. These modifications do not change the upstream license.
 

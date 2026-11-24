@@ -2,7 +2,7 @@
 
 ## OpenArm model
 
-`arm.xml` contains the OpenArm v1 torso and both arms. Only the right arm and right gripper are actuated. The left arm is fixed at the body's side with shoulder J2 at -8 degrees and elbow J4 straight.
+`resources/openarm/arm.xml` contains the OpenArm v1 torso and both arms. Only the right arm and right gripper are actuated. The left arm is fixed at the body's side with shoulder J2 at -8 degrees and elbow J4 straight.
 
 The model has 13 scalar degrees of freedom: seven right-arm joints and six gripper linkage joints. It has eight actuators, a 2 ms timestep, and no cameras. One virtual IMU is attached to the right wrist.
 
@@ -43,4 +43,4 @@ The gesture detector requires more than 25 degrees of neutral-relative tilt and 
 
 OpenArm geometry comes from [enactic/openarm_mujoco](https://github.com/enactic/openarm_mujoco), pinned in the source project to revision `06b4c8ad6d547c3faaa3bf780629ee3e1ac2b0d0`. Gripper geometry comes from the `blueberry_gripper_description` package in the Blue_Berry_Harvesting_Bot project.
 
-`openarm_assets.json` records relative asset paths and SHA-256 hashes. All meshes required at runtime are included. See [third-party notices](../THIRD_PARTY_NOTICES.md) for applicable terms.
+`resources/openarm/openarm_assets.json` records relative asset paths and SHA-256 hashes. All meshes required at runtime are included. See [third-party notices](../THIRD_PARTY_NOTICES.md) for applicable terms.
